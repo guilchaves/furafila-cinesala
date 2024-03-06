@@ -1,10 +1,10 @@
 # Furafila Cinesala
-Uma aplicação em CLI feita para me avisar quando o Cinesala está com novas sessões.
+Uma aplicação em CLI desenvolvida em Rust com o propósito de me avisar quando o [Cinesala](https://www.veloxtickets.com/Portal/Local/Cinema/Sao-Paulo/CINESALA/CSL/) está com novas sessões.
 
 ## Motivação
 
 Não precisar ficar apertando Ctrl + Shift + R na página de bilhetes do Cinesala para saber se existem novas sessões de cinema.
-O cinesala é um dos cinemas com sofázinho duplo, sempre super concorrido, como um bom namorado resolvi automatizar esse processo e sempre garantir filme e sofázinho para o meu relacionamento.
+O cinesala apenas disponibiliza ingressos para sessões semanais, sendo um dos poucos cinemas com sofázinho duplo, que são sempre super concorridos. Como um bom namorado resolvi automatizar esse processo e sempre garantir filme e sofázinho para eu e minha amada 🥰.
 
 ## Como funciona 
 
