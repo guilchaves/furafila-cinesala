@@ -25,7 +25,7 @@ async fn main() -> Result<()> {
             initial_sessions_count = updated_sessions_count;
         } else {
             if initial_sessions_count < updated_sessions_count {
-                println!("NEW SESSIONS AVAILABLE! Go to site: {}", CINESALA_ADDRESS);
+                println!("NOVAS SESSÕES DISPONÍVEIS! Corre: {}", CINESALA_ADDRESS);
             }
         }
         tokio::time::sleep(Duration::from_secs(REFRESH_TIME_IN_SECONDS)).await;
@@ -88,7 +88,7 @@ fn process_segment(segment: &str) -> Result<Vec<NaiveDate>> {
             let now = Local::now().format("%H:%M:%S");
 
             println!(
-                "Available sessions: {}     |    Scraped at: {}",
+                "Sessões disponíveis: {}     |    Scraped at: {}",
                 formatted_dates.join(", "),
                 now
             );
