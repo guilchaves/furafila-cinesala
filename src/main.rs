@@ -5,7 +5,7 @@ use furafila_cinesala::crawler;
 
 const CINESALA_ADDRESS: &str =
     "https://www.veloxtickets.com/Portal/Local/Cinema/Sao-Paulo/CINESALA/CSL/";
-const REFRESH_TIME_IN_SECONDS: u64 = 2;
+const REFRESH_TIME_IN_SECONDS: u64 = 300;
 
 #[tokio::main]
 async fn main() {
