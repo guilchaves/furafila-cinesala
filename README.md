@@ -11,6 +11,8 @@ O cinesala apenas disponibiliza ingressos para sessões semanais, sendo um dos p
 A aplicação utiliza técnicas de web scraping para extrair informaçòes do site do cinema. Ele verifica as atualizações nos dias de sessão comparando o cronograma de sessão atual com o cronograma armazenado anteriormente.
 Quando novas sessões são detectadas, ele envia uma notificação para o console do usuário.
 
+![img](./cli.png)
+
 ## Todo
 
 - Adicionar integração com o Telegram, para notificação em tempo real via celular.
