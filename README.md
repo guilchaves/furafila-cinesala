@@ -3,7 +3,7 @@
 [![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)
 
 # 🦀 Furafila Cinesala
-Uma aplicação em CLI desenvolvida em Rust com o propósito de me avisar quando o [Cinesala](https://www.veloxtickets.com/Portal/Local/Cinema/Sao-Paulo/CINESALA/CSL/) está com novas sessões.
+Uma aplicação em CLI desenvolvida em Rust com o propósito de me avisar quando o [Cinesala](https://www.cinesala.com.br/) está com novas sessões.
 
 ## Motivação
 
@@ -14,6 +14,8 @@ O Cinesala apenas disponibiliza ingressos para sessões semanais, sendo um dos p
 
 A aplicação utiliza técnicas de web scraping para extrair informações do site do cinema. Ele verifica as atualizações nos dias de sessão comparando o cronograma de sessão atual com o cronograma armazenado anteriormente.
 Quando novas sessões são detectadas, ele envia uma notificação para o console do usuário.
+
+![img](./cli.png)
 
 ## Todo
 
