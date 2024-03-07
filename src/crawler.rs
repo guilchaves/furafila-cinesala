@@ -1,7 +1,7 @@
-use chrono::{Datelike, NaiveDate, Local};
+use chrono::{Datelike, Local, NaiveDate};
+use error_chain::error_chain;
 use reqwest::Client;
 use serde_json::Value;
-use error_chain::error_chain;
 
 error_chain! {
     foreign_links {
@@ -81,4 +81,3 @@ pub fn process_segment(segment: &str) -> Result<Vec<NaiveDate>> {
 pub fn parse_date(date_str: &str) -> Option<NaiveDate> {
     NaiveDate::parse_from_str(date_str, "%Y-%m-%d").ok()
 }
-

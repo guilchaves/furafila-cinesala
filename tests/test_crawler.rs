@@ -8,7 +8,6 @@ const MOCK_RESPONSE_TEXT: &str = r#"
         ];
     "#;
 
-
 #[tokio::test]
 async fn test_fetch_response() {
     let response_text = fetch_response(MOCK_URL).await.unwrap();
