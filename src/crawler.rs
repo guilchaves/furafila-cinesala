@@ -11,16 +11,16 @@ error_chain! {
     }
 }
 
-pub async fn fetch_and_process_response() -> Result<usize> {
-    let response_text = fetch_response().await?;
+pub async fn fetch_and_process_response(fetch_address: &str) -> Result<usize> {
+    let response_text = fetch_response(fetch_address).await?;
     let session_count = process_response(&response_text)?;
     Ok(session_count)
 }
 
-async fn fetch_response() -> Result<String> {
+pub async fn fetch_response(fetch_address: &str) -> Result<String> {
     let client = Client::new();
     let response = client
-        .get(crate::CINESALA_ADDRESS)
+        .get(fetch_address)
         .header(reqwest::header::USER_AGENT, "Mozilla/5.0")
         .send()
         .await?;
@@ -28,7 +28,7 @@ async fn fetch_response() -> Result<String> {
     Ok(response_text)
 }
 
-fn process_response(response_text: &str) -> Result<usize> {
+pub fn process_response(response_text: &str) -> Result<usize> {
     let mut new_count = 0;
     if let Some(event_dates_data) = extract_event_dates_data(response_text) {
         for segment in event_dates_data.split(';') {
@@ -43,15 +43,15 @@ fn process_response(response_text: &str) -> Result<usize> {
     Ok(new_count)
 }
 
-fn extract_event_dates_data(response_text: &str) -> Option<&str> {
+pub fn extract_event_dates_data(response_text: &str) -> Option<&str> {
     let start_index = response_text.find("var eventDatesData = ")?;
     let start_index = start_index + "var eventDatesData = ".len();
     let end_index = response_text[start_index..].find("];")?;
-    let end_index = start_index + end_index + 2;
+    let end_index = start_index + end_index + 1;
     Some(&response_text[start_index..end_index])
 }
 
-fn process_segment(segment: &str) -> Result<Vec<NaiveDate>> {
+pub fn process_segment(segment: &str) -> Result<Vec<NaiveDate>> {
     let json_data: Value = serde_json::from_str(segment)?;
     if let Some(array) = json_data.as_array() {
         let dates: Vec<_> = array
@@ -78,7 +78,7 @@ fn process_segment(segment: &str) -> Result<Vec<NaiveDate>> {
     Ok(Vec::new())
 }
 
-fn parse_date(date_str: &str) -> Option<NaiveDate> {
+pub fn parse_date(date_str: &str) -> Option<NaiveDate> {
     NaiveDate::parse_from_str(date_str, "%Y-%m-%d").ok()
 }
 
