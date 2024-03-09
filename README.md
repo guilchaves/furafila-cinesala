@@ -35,7 +35,7 @@ cd furafila-cinesala
 
 3. Compile o projeto usando o Cargo
 ```bash
-cargo build --release
+make release
 ```
 
 ## Rodar o projeto
